@@ -22,14 +22,16 @@ Here is an example of how to run the script:
 
 Quick Run:
 
-````bash
+```bash
 python change_image512.py -i "./image_path.png" -d "./output/"
 ```
+
 This will check do the default behavior which is black threshold of 60, blackk percentage of 10. No white check, no color check.
 
 Advanced:
+
 ```bash
 python change_image512.py -i "/home/user/Pictures/large_image.png" -d "/home/user/Pictures/CroppedImages" --color "#FFFFFF" "#FF0000" --color_threshold 80 --color_percentage 20 --color_specs "#FFFFFF,80,20" "#FF0000,70,10" -bw
-````
+```
 
 This will take the image at /home/user/Pictures/large_image.png, crop it into 512x512 images, save the cropped images in /home/user/Pictures/CroppedImages, and delete any images that have more than 20% of their pixels above a color threshold of 80 for the colors white and red.
