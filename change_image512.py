@@ -17,6 +17,8 @@ parser = argparse.ArgumentParser(description='This script processes a large imag
 
 # Add the arguments
 parser.add_argument('-i', '--image', type=str, required=True, help='The path to the large image file. Example: "/home/user/Pictures/image.png"')
+parser.add_argument('-id', '--input-dir', type=str, help='The path to the directory containing image files. Example: "/home/user/Pictures/Images"')
+
 parser.add_argument('-d', '--dest', type=str, required=True, help='The new folder to save the cropped images. Example: "/home/user/Pictures/CroppedImages"')
 parser.add_argument('--color', type=str, nargs='*', default=['#000000'],
                     help='The colors to check for in hexadecimal or RGB format. Default is black (#000000). Example: "#FFFFFF" "#FF0000" or "255,255,255" "255,0,0"')
@@ -33,8 +35,19 @@ parser.add_argument('-w', '--white', action='store_true', help='Check for white 
 # Parse the arguments
 args = parser.parse_args()
 
-# Open the large image file
-large_img = Image.open(args.image)
+
+if args.input_dir:
+    # Get a list of all the image files in the directory
+    image_files = [f for f in os.listdir(args.input_dir) if os.path.isfile(os.path.join(args.input_dir, f))]
+
+    # Process each image file
+    for image_file in image_files:
+        # Open the image file
+        large_img = Image.open(os.path.join(args.input_dir, image_file))
+else:
+    # Open the large image file
+    large_img = Image.open(args.image)
+
 
 # Define the path to the large image file and the new folder
 large_img_path = args.image
