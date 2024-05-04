@@ -17,8 +17,8 @@ The script can be run from the command line with the following arguments:
 
 Here is an example of how to run the script:
 
-````bash
-python change_image512.py /home/user/Pictures/large_image.png /home/user/Pictures/CroppedImages --color "#FFFFFF" "#FF0000" --color_threshold 80 --color_percentage 20 --color_specs "#FFFFFF,80,20" "#FF0000,70,10"```
+`````bash
+python change_image512.py /home/user/Pictures/large_image.png /home/user/Pictures/CroppedImages --color "#FFFFFF" "#FF0000" --color_threshold 80 --color_percentage 20 --color_specs "#FFFFFF,80,20" "#FF0000,70,10" ````
 
 This will take the image at /home/user/Pictures/large_image.png, crop it into 512x512 images, save the cropped images in /home/user/Pictures/CroppedImages, and delete any images that have more than 20% of their pixels above a color threshold of 80 for the colors white and red.
 
@@ -26,25 +26,23 @@ This will take the image at /home/user/Pictures/large_image.png, crop it into 51
 
 Basic Command
 The basic command to run this script with default parameters would be:
-````
+
 
 python change_image512.py <large_img_path> <new_folder>
 
-```
+
 
 Replace <large_img_path> with the path to the large image file you want to process, and <new_folder> with the path to the folder where you want to save the cropped images.
 
 For example:
-```
+
 
 python change_image512.py /home/user/Pictures/image.png /home/user/Pictures/CroppedImages
 
-```
 This will run the script with the default parameters, which are:
 
 Color to check for: Black (#000000)
 Color threshold: 70
 Color percentage: 10
 Color specifications: None (will use default values of black and white with thresholds and percentages of 70,10 and 80,20 respectively)
-
-```
+`````
